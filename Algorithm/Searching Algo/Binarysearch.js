@@ -4,7 +4,7 @@ function Binarysearch(arr,n,data){
     var l=0;
     var r = n-1;
     
-    while(l<r){
+    while(l<=r){
         let mid = l+Math.floor((r-l)/2);
         if(data==arr[mid]){
             return mid;
