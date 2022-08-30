@@ -1,0 +1,34 @@
+// Missing alphabets in a sentence to make it as a panagram 
+//A panagram is a sentence where all the alphabets from a to z are present irrespective of capital or small characters
+
+
+function missingchars(str){
+    
+    var table = new Array(26);
+    
+    table.fill(false);
+    
+    for(let i=0;i<str.length;i++){
+        if("A".charCodeAt()<=str[i].charCodeAt() && "Z".charCodeAt()>=str[i].charCodeAt()){
+            table[str[i].charCodeAt()-"A".charCodeAt()]=true;
+        }
+        else if("a".charCodeAt()<=str[i].charCodeAt() && "z".charCodeAt()>=str[i].charCodeAt()){
+            table[str[i].charCodeAt()-"a".charCodeAt()]=true;
+        }
+    }
+    let characters = 0;
+    var missing_characters = "";
+    while(characters<26){
+        if(table[characters]==false){
+            missing_characters+=String.fromCharCode(characters+"a".charCodeAt())+" ";
+        }
+        characters++;
+    }
+    return missing_characters;
+    
+    
+    
+}
+
+var str = "The quick brown fox jumps"
+console.log(missingchars(str));
